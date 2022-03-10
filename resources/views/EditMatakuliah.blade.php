@@ -30,16 +30,25 @@
                             </option>
                             @endforeach
                         </select>
+                        @error('id_dosen')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nama Matkul</label>
                         <input type="text" name="nama_matkul" value="{{$matakuliah->nama_matkul}}" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp">
+                        @error('nama_matkul')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Kode</label>
                         <input type="text" name="kode_matkul" value="{{$matakuliah->kode_matkul}}" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp">
+                        @error('kode_matkul')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Save Change</button>
                 </form>

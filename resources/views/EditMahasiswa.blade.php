@@ -35,21 +35,33 @@
                         <label for="exampleInputEmail1">Nama</label>
                         <input type="text" name="nama" value="{{$mahasiswa->nama}}" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp">
+                        @error('nama')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">NIM</label>
                         <input type="text" name="nim" value="{{$mahasiswa->nim}}" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp">
+                        @error('nim')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Alamat</label>
                         <input type="text" name="alamat" value="{{$mahasiswa->alamat}}" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp">
+                        @error('alamat')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Telp</label>
                         <input type="text" name="no_telp" value="{{$mahasiswa->no_telp}}" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp">
+                        @error('no_telp')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Save Change</button>
                 </form>

@@ -75,6 +75,9 @@
                                 <option value="{{$a->id}}">{{$a->nama}}</option>
                                 @endforeach
                             </select>
+                            @error('id_mahasiswa')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Matkul</label>
@@ -84,11 +87,17 @@
                                 <option value="{{$m->id}}">{{$m->nama_matkul}}</option>
                                 @endforeach
                             </select>
+                            @error('id_matkul')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nilai</label>
-                            <input type="text" name="nilai" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <input type="text" name="nilai" value="{{old('nilai')}}" class="form-control"
+                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                            @error('nilai')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="modal-footer">

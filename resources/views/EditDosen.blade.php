@@ -24,21 +24,33 @@
                         <label for="exampleInputEmail1">Nama Dosen</label>
                         <input type="text" name="nama_dosen" value="{{$dosen->nama_dosen}}" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp">
+                        @error('nama_dosen')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">NIP</label>
                         <input type="text" name="nip" value="{{$dosen->nip}}" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp">
+                        @error('nip')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Alamat</label>
                         <input type="text" name="alamat" value="{{$dosen->alamat}}" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp">
+                        @error('alamat')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Telp</label>
                         <input type="text" name="no_telp" value="{{$dosen->no_telp}}" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp">
+                        @error('no_telp')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Save Change</button>
                 </form>

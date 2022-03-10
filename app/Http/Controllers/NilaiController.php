@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Nilai;
 use App\Models\Mahasiswa;
 use App\Models\Matakuliah;
+use App\Http\Requests\nilaiRequest;
 
 class NilaiController extends Controller
 {
@@ -22,14 +23,8 @@ class NilaiController extends Controller
         ]);
     }
 
-    public function add(Request $request)
+    public function add(nilaiRequest $request)
     {
-        $request->validate([
-            'id_mahasiswa' => 'required',
-            'id_matkul' => 'required',
-            'nilai' => 'required',
-        ]);
-
         Nilai::create($request->all());
 
         return redirect('nilai');
@@ -46,14 +41,8 @@ class NilaiController extends Controller
         ]);
     }
 
-    public function update(Request $request, Nilai $nilai)
+    public function update(nilaiRequest $request, Nilai $nilai)
     {
-        $request->validate([
-            'id_mahasiswa' => 'required',
-            'id_matkul' => 'required',
-            'nilai' => 'required',
-        ]);
-
         $nilai->update($request->all());
 
         return redirect('nilai');

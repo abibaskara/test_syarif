@@ -77,26 +77,41 @@
                                 <option value="{{$k->id}}">{{$k->nama_kelas}}</option>
                                 @endforeach
                             </select>
+                            @error('kelas')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nama</label>
-                            <input type="text" name="nama" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <input type="text" name="nama" value="{{old('nama')}}" class="form-control"
+                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                            @error('nama')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">NIM</label>
-                            <input type="text" name="nim" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <input type="text" name="nim" value="{{old('nim')}}" class="form-control"
+                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                            @error('nim')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Alamat</label>
-                            <input type="text" name="alamat" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <input type="text" name="alamat" value="{{old('alamat')}}" class="form-control"
+                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                            @error('alamat')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Telp</label>
-                            <input type="text" name="no_telp" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <input type="text" name="no_telp" value="{{old('no_telp')}}" class="form-control"
+                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                            @error('no_telp')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="modal-footer">

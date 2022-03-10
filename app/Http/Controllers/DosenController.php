@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dosen;
+use App\Http\Requests\dosenRequest;
 
 class DosenController extends Controller
 {
@@ -16,15 +17,8 @@ class DosenController extends Controller
         ]);
     }
 
-    public function add(Request $request)
+    public function add(dosenRequest $request)
     {
-        $request->validate([
-            'nama_dosen' => 'required',
-            'nip' => 'required',
-            'alamat' => 'required',
-            'no_telp' => 'required',
-        ]);
-
         $input = $request->all();
         Dosen::create($input);
 
@@ -39,17 +33,11 @@ class DosenController extends Controller
         ]);
     }
 
-    public function update(Request $request, Dosen $dosen)
+    public function update(dosenRequest $request, Dosen $dosen)
     {
-        $request->validate([
-            'nama_dosen' => 'required',
-            'nip' => 'required',
-            'alamat' => 'required',
-            'no_telp' => 'required',
-        ]);
+
         $dosen->update($request->all());
-
-
+        
         return redirect('dosen');
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kelas;
+use App\Http\Requests\kelasRequest;
 
 class KelasController extends Controller
 {
@@ -17,12 +18,8 @@ class KelasController extends Controller
         ]);
     }
 
-    public function add(Request $request)
+    public function add(kelasRequest $request)
     {
-        $request->validate([
-            'nama_kelas' => 'required'
-        ]);
-
         $data = new Kelas;
         $data->nama_kelas = $request->nama_kelas;
         $data->save();
@@ -37,12 +34,8 @@ class KelasController extends Controller
         ]);
     }
 
-    public function update(Request $request, Kelas $kelas)
+    public function update(kelasRequest $request, Kelas $kelas)
     {
-        $request->validate([
-            'nama_kelas' => 'required'
-        ]);
-
         $kelas->update($request->all());
         return redirect('kelas');
     }

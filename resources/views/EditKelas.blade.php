@@ -24,6 +24,9 @@
                         <label for="exampleInputEmail1">Nama Kelas</label>
                         <input type="text" name="nama_kelas" value="{{$kelas->nama_kelas}}" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp">
+                        @error('nama_kelas')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Save Change</button>
                 </form>

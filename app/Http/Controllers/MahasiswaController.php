@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
 use App\Models\Kelas;
+use App\Http\Requests\mahasiswaRequest;
 
 class MahasiswaController extends Controller
 {
@@ -19,16 +20,8 @@ class MahasiswaController extends Controller
         ]);
     }
 
-    public function add(Request $request)
+    public function add(mahasiswaRequest $request)
     {
-        $request->validate([
-            'id_kelas' => 'required',
-            'nama' => 'required',
-            'nim' => 'required',
-            'alamat' => 'required',
-            'no_telp' => 'required',
-        ]);
-
         $input = $request->all();
         Mahasiswa::create($input);
 
@@ -44,16 +37,8 @@ class MahasiswaController extends Controller
         ]);
     }
 
-    public function update(Request $request, Mahasiswa $mahasiswa)
+    public function update(mahasiswaRequest $request, Mahasiswa $mahasiswa)
     {
-        $request->validate([
-            'id_kelas' => 'required',
-            'nama' => 'required',
-            'nim' => 'required',
-            'alamat' => 'required',
-            'no_telp' => 'required',
-        ]);
-
         $mahasiswa->update($request->all());
         return redirect('mahasiswa');
     }

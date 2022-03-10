@@ -23,13 +23,16 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Mahasiswa</label>
                         <select class="form-control" name="id_mahasiswa">
-                            <option value="">-- Pilih Kelas</option>
+                            <option value="">-- Pilih Mahasiswa</option>
                             @foreach ($mahasiswa as $k)
                             <option value="{{$k->id}}" {{ old('id_mahasiswa', $k->id) == 1 ? 'selected' : '' }}>
                                 {{$k->nama}}
                             </option>
                             @endforeach
                         </select>
+                        @error('id_mahasiswa')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Matakuliah</label>
@@ -41,11 +44,17 @@
                             </option>
                             @endforeach
                         </select>
+                        @error('id_matkul')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nilai</label>
                         <input type="text" name="nilai" value="{{$nilai->nilai}}" class="form-control"
                             id="exampleInputEmail1" aria-describedby="emailHelp">
+                        @error('nilai')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Save Change</button>
                 </form>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Matakuliah;
 use App\Models\Dosen;
+use App\Http\Requests\matakuliahRequest;
 
 class MatakuliahController extends Controller
 {
@@ -19,14 +20,8 @@ class MatakuliahController extends Controller
         ]);
     }
 
-    public function add(Request $request)
+    public function add(matakuliahRequest $request)
     {
-        $request->validate([
-            'id_dosen' => 'required',
-            'nama_matkul' => 'required',
-            'kode_matkul' => 'required',
-        ]);
-
         Matakuliah::create($request->all());
 
         return redirect('matkul');
@@ -41,14 +36,8 @@ class MatakuliahController extends Controller
         ]);
     }
 
-    public function update(Request $request, Matakuliah $matakuliah)
+    public function update(matakuliahRequest $request, Matakuliah $matakuliah)
     {
-        $request->validate([
-            'id_dosen' => 'required',
-            'nama_matkul' => 'required',
-            'kode_matkul' => 'required',
-        ]);
-
         $matakuliah->update($request->all());
 
         return redirect('matkul');
